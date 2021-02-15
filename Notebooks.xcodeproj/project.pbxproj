@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D02065725DA80B100634FB7 /* DownSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02065625DA80B100634FB7 /* DownSample.swift */; };
+		2D02065E25DA86BC00634FB7 /* GranCanaria1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D02065A25DA86BC00634FB7 /* GranCanaria1.jpg */; };
+		2D02065F25DA86BC00634FB7 /* GranCanaria4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D02065B25DA86BC00634FB7 /* GranCanaria4.jpg */; };
+		2D02066025DA86BC00634FB7 /* GranCanaria3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D02065C25DA86BC00634FB7 /* GranCanaria3.jpg */; };
+		2D02066125DA86BC00634FB7 /* GranCanaria2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D02065D25DA86BC00634FB7 /* GranCanaria2.jpg */; };
 		2D9F0C2B25D0AED500A658A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F0C2A25D0AED500A658A5 /* AppDelegate.swift */; };
 		2D9F0C2D25D0AED500A658A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F0C2C25D0AED500A658A5 /* SceneDelegate.swift */; };
 		2D9F0C2F25D0AED500A658A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F0C2E25D0AED500A658A5 /* ViewController.swift */; };
@@ -45,6 +50,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D02065625DA80B100634FB7 /* DownSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownSample.swift; sourceTree = "<group>"; };
+		2D02065A25DA86BC00634FB7 /* GranCanaria1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GranCanaria1.jpg; sourceTree = "<group>"; };
+		2D02065B25DA86BC00634FB7 /* GranCanaria4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GranCanaria4.jpg; sourceTree = "<group>"; };
+		2D02065C25DA86BC00634FB7 /* GranCanaria3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GranCanaria3.jpg; sourceTree = "<group>"; };
+		2D02065D25DA86BC00634FB7 /* GranCanaria2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GranCanaria2.jpg; sourceTree = "<group>"; };
 		2D9F0C2725D0AED500A658A5 /* Notebooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notebooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9F0C2A25D0AED500A658A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D9F0C2C25D0AED500A658A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +105,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D02065925DA86A200634FB7 /* DummyData */ = {
+			isa = PBXGroup;
+			children = (
+				2D02065A25DA86BC00634FB7 /* GranCanaria1.jpg */,
+				2D02065D25DA86BC00634FB7 /* GranCanaria2.jpg */,
+				2D02065C25DA86BC00634FB7 /* GranCanaria3.jpg */,
+				2D02065B25DA86BC00634FB7 /* GranCanaria4.jpg */,
+			);
+			path = DummyData;
+			sourceTree = "<group>";
+		};
 		2D9F0C1E25D0AED500A658A5 = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +176,7 @@
 		2D9F0C4625D0AF1900A658A5 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				2D02065925DA86A200634FB7 /* DummyData */,
 				2D9F0C6C25D1B8F400A658A5 /* CoreData */,
 			);
 			path = Local;
@@ -238,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				2DF4289D25D84F1800A5C069 /* TextFieldWithPadding.swift */,
+				2D02065625DA80B100634FB7 /* DownSample.swift */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -299,9 +322,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D02066125DA86BC00634FB7 /* GranCanaria2.jpg in Resources */,
 				2D9F0C3A25D0AED900A658A5 /* LaunchScreen.storyboard in Resources */,
+				2D02066025DA86BC00634FB7 /* GranCanaria3.jpg in Resources */,
+				2D02065F25DA86BC00634FB7 /* GranCanaria4.jpg in Resources */,
 				2D9F0C3725D0AED900A658A5 /* Assets.xcassets in Resources */,
 				2D9F0C3225D0AED500A658A5 /* Main.storyboard in Resources */,
+				2D02065E25DA86BC00634FB7 /* GranCanaria1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +346,7 @@
 				2DF4289E25D84F1800A5C069 /* TextFieldWithPadding.swift in Sources */,
 				2DF428BA25D93C3000A5C069 /* NotePhotographCell.swift in Sources */,
 				2DF4288125D5D7C200A5C069 /* NotesViewController.swift in Sources */,
+				2D02065725DA80B100634FB7 /* DownSample.swift in Sources */,
 				2DF428BD25D93C4700A5C069 /* NotePhotographCellViewModel.swift in Sources */,
 				2DF4289725D8401900A5C069 /* EditNoteViewModel.swift in Sources */,
 				2DF4289325D7192000A5C069 /* AddNoteCoordinator.swift in Sources */,

@@ -133,14 +133,10 @@ class DataManagerCoreData: NSObject {
         
         performInBackground {  (managedObjectContext) in
             
-            if let imageData = try? Data(contentsOf: photoUrl) {
-                if let image = UIImage(data: imageData) {
-                    guard let imageDataJpg = image.jpegData(compressionQuality: 1) else { return }
-                    
-                    
-                    
-                    //note.addToPhotographs(photograph)
-                    
+            guard let imageThumbnail = DownSampler.downsample(imageAt: photoUrl, to: CGSize(width: 100, height: 100), scale: CGFloat(3)),
+                  let imageDataJpg = imageThumbnail.jpegData(compressionQuality: 1) else { return }
+            
+            
                     let noteID = note.objectID
                     let copyNote = managedObjectContext.object(with: noteID) as! NoteMO
                     
@@ -156,8 +152,6 @@ class DataManagerCoreData: NSObject {
                         fatalError("could not create note with thumbnail image in background.")
                     }
                     
-                }
-            }
  
         }
 
@@ -216,39 +210,56 @@ class DataManagerCoreData: NSObject {
                               content: "Nota de prueba con fotos",
                               in: managedObjectContext) else { return }
             
-            guard let image1 = UIImage(named: "GranCanaria1") else { return }
-            guard let imageData1 = image1.jpegData(compressionQuality: 1) else { return }
-            guard let photograph1 = PhotographMO.createPhoto(createdAt: Date(),
-                                                             imageData: imageData1,
-                                                             in: managedObjectContext) else { return }
             
-            guard let image2 = UIImage(named: "GranCanaria2") else { return }
-            guard let imageData2 = image2.jpegData(compressionQuality: 1) else { return }
-            guard let photograph2 = PhotographMO.createPhoto(createdAt: Date(),
-                                                             imageData: imageData2,
-                                                             in: managedObjectContext) else { return }
+            if let image1URL = Bundle.main.url(forResource: "GranCanaria1", withExtension: "jpg") {
+                
+                guard let image1Thumbnail = DownSampler.downsample(imageAt: image1URL, to: CGSize(width: 100, height: 100), scale: CGFloat(3)),
+                      let image1DataJpg = image1Thumbnail.jpegData(compressionQuality: 1) else { return }
+                guard let photograph1 = PhotographMO.createPhoto(createdAt: Date(),
+                                                                 imageData: image1DataJpg,
+                                                                 in: managedObjectContext) else { return }
             
-            guard let image3 = UIImage(named: "GranCanaria3") else { return }
-            guard let imageData3 = image3.jpegData(compressionQuality: 1) else { return }
-            guard let photograph3 = PhotographMO.createPhoto(createdAt: Date(),
-                                                             imageData: imageData3,
-                                                             in: managedObjectContext) else { return }
+                note.addToPhotographs(photograph1)
+                
+            }
             
-            guard let image4 = UIImage(named: "GranCanaria4") else { return }
-            guard let imageData4 = image4.jpegData(compressionQuality: 1) else { return }
-            guard let photograph4 = PhotographMO.createPhoto(createdAt: Date(),
-                                                             imageData: imageData4,
-                                                             in: managedObjectContext) else { return }
+            if let image2URL = Bundle.main.url(forResource: "GranCanaria2", withExtension: "jpg") {
+                
+                guard let image2Thumbnail = DownSampler.downsample(imageAt: image2URL, to: CGSize(width: 100, height: 100), scale: CGFloat(3)),
+                      let image2DataJpg = image2Thumbnail.jpegData(compressionQuality: 1) else { return }
+                guard let photograph2 = PhotographMO.createPhoto(createdAt: Date(),
+                                                                 imageData: image2DataJpg,
+                                                                 in: managedObjectContext) else { return }
             
-            note.addToPhotographs(photograph1)
-            note.addToPhotographs(photograph2)
-            note.addToPhotographs(photograph3)
-            note.addToPhotographs(photograph4)
+                note.addToPhotographs(photograph2)
+                
+            }
             
+            if let image3URL = Bundle.main.url(forResource: "GranCanaria3", withExtension: "jpg") {
+                
+                guard let image3Thumbnail = DownSampler.downsample(imageAt: image3URL, to: CGSize(width: 100, height: 100), scale: CGFloat(3)),
+                      let image3DataJpg = image3Thumbnail.jpegData(compressionQuality: 1) else { return }
+                guard let photograph3 = PhotographMO.createPhoto(createdAt: Date(),
+                                                                 imageData: image3DataJpg,
+                                                                 in: managedObjectContext) else { return }
             
+                note.addToPhotographs(photograph3)
+                
+            }
             
+            if let image4URL = Bundle.main.url(forResource: "GranCanaria4", withExtension: "jpg") {
+                
+                guard let image4Thumbnail = DownSampler.downsample(imageAt: image4URL, to: CGSize(width: 100, height: 100), scale: CGFloat(3)),
+                      let image4DataJpg = image4Thumbnail.jpegData(compressionQuality: 1) else { return }
+                guard let photograph4 = PhotographMO.createPhoto(createdAt: Date(),
+                                                                 imageData: image4DataJpg,
+                                                                 in: managedObjectContext) else { return }
             
+                note.addToPhotographs(photograph4)
+                
+            }
             
+
             
             
             do {
@@ -256,6 +267,7 @@ class DataManagerCoreData: NSObject {
             } catch {
                 fatalError("could not dummy content.")
             }
+             
             
         }
         
